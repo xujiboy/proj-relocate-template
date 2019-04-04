@@ -25,7 +25,7 @@ build: compile_linux clean_up
 	cp -rf requirement.txt bin makefile $@/
 	mv $(VENV_NAME).tar.gz $@/
 
-## Compile for distribution for Linux
+## compile for distribution for Linux
 compile_linux: compile.py
 	vagrant up --provision
 	vagrant ssh -c "cd /vagrant; ./compile_linux.sh $(VENV_NAME)"
@@ -41,7 +41,7 @@ clean_up:
 	cat oldname | paste -d' ' oldname newname | sed 's/^/mv /' | bash && \
 	rm -r newname oldname
 
-## Tar and compress the compiled project
+## tar and compress the compiled project
 proj_to_distribute.tar.gz: build
 	tar -czvf $@ $^
 	echo "$@ is created."
