@@ -1,13 +1,14 @@
 # Project Relocate Template
 
 ## Intro
-This is a simple tempate for a python3 project, designed specifically for convenience of relocating or distributing the project from a MacOS system to a Linux system. The motivation behind this template is due to the state of multiple choices of python environment / package management systems (`conda`, `pip`, `virtualenv`, `pipenv`, etc.), and the caveats residing in each of them might cause a perfectly running python project on a MacOS system to be quite difficult to relocate or distribute to another Linux machine. Another common difficulty that developers often face is the lack of internet connection in the target machine (for example on a customer's virutual machine with limited or no internet for security reasons), which makes re-create an identical python environment challenging.
+This is a simple tempate for a `python3` project, designed specifically for convenience of relocating or distributing the project from a MacOS system to a Linux system. The motivation behind this template is due to the state of multiple choices of python environment / package management systems (`conda`, `pip`, `virtualenv`, `pipenv`, etc.), and the caveats residing in each of them might cause a perfectly running python project on a MacOS system to be quite difficult to relocate or distribute to another Linux machine. Another common difficulty that developers often face is the lack of internet connection in the target machine (for example on a customer's virutual machine with limited or no internet for security reasons), which makes re-create an identical python environment challenging. Last but not the least, installing `python` on a Linux machine might not seem to be a challenge, but it certainly takes up time from deployment, and can also become a hassle if root access (admin) is not available.
 
 ## Highlight
+- no need to install `python` on target Linux machine
 - automatic local Linux VM mangement using Vagrant + VirtualBox
-- flexibility of choice on python virtual environment management on source / development MacOS machine (`pip`, `virtualenv`, `conda`, `pipenv`, etc.)
+- flexibility of choice on python virtual environment management on source / development machine (`pip`, `virtualenv`, `conda`, `pipenv`, etc.)
 - utilize `Cython` for compiling project lib (any python packages under directory `lib/`)
-- utilize `conda` and `conda-pack` on target Linux machine to re-create the identical virtual environment
+- transfer a single tarball file to target Linux machine to distribute the project and re-create an identical virtual environment
 
 ## Prerequisite
 This template requires these following apps working on the source MacOS machine:
@@ -60,7 +61,7 @@ This template requires these following apps working on the source MacOS machine:
     tar -xzf your_venv.tar.gz -C your_venv
     source your_venv/bin/activate
     ```
-    and now you have the identical virtual env as you had on the MacOS machine! To deactivate try:
+    and now you have the identical virtual env as you had on your source machine! To deactivate try:
     ``` bash
     (your_venv) $ source your_venv/bin/deactivate
     ```
