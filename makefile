@@ -45,10 +45,10 @@ clean_up:
 proj_to_distribute.tar.gz: build
 	tar -czvf $@ $^
 	echo "$@ is created."
-		
 
-
-
+## clean build and tarballed project
+clean:
+	rm -rf build proj_to_distribute.tar.gz
 
 #################################################################################
 # Self Documenting Commands                                                     #
